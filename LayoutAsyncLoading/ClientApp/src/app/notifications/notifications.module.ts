@@ -10,6 +10,7 @@ import { ClientsVisitsComponent } from './clients-visits/clients-visits.componen
   declarations: [ClientsPaymentsComponent, ClientsEventsComponent, ClientsVisitsComponent],
   imports: [
     CommonModule
-  ]
+  ],
+  exports: [ClientsPaymentsComponent, ClientsEventsComponent, ClientsVisitsComponent],
 })
 export class NotificationsModule { }

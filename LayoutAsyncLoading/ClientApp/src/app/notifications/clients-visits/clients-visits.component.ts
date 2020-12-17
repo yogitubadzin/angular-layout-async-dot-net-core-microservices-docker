@@ -7,7 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientsVisitsComponent implements OnInit {
 
-  constructor() { }
+  number: number;
+
+  constructor() {
+    this.number = 33;
+   }
 
   ngOnInit() {
   }

@@ -1,3 +1,4 @@
+import { NotificationsModule } from './../notifications/notifications.module';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -8,7 +9,8 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
   declarations: [PageNotFoundComponent, NavMenuComponent],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    NotificationsModule
   ],
   exports: [PageNotFoundComponent, NavMenuComponent],
 })

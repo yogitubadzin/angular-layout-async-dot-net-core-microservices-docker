@@ -6,8 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./clients-events.component.css']
 })
 export class ClientsEventsComponent implements OnInit {
+  number: number;
 
-  constructor() { }
+  constructor() {
+    this.number = 5;
+   }
 
   ngOnInit() {
   }

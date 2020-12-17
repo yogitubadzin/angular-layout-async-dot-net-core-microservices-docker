@@ -1,18 +1,34 @@
-<div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-  <ul class="navbar-nav flex-grow">
-    <li
-      class="nav-item"
-      [routerLinkActive]="['link-active']"
-      [routerLinkActiveOptions]="{ exact: true }"
-    >
-      <a class="nav-link text-dark" [routerLink]="[{outlets:{sub:['news']}}]">News</a>
-    </li>
-    <li class="nav-item" [routerLinkActive]="['link-active']">
-      <a class="nav-link text-dark" [routerLink]="[{outlets:{sub:['text']}}]">Text</a>
-    </li>
-    <li class="nav-item" [routerLinkActive]="['link-active']">
-      <a class="nav-link text-dark" [routerLink]="[{outlets:{sub:['about']}}]">About</a>
-    </li>
-  </ul>
+<div class="row">
+  <div class="column">
+    <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+      <ul class="navbar-nav flex-grow">
+        <li
+          class="nav-item"
+          [routerLinkActive]="['link-active']"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          <a
+            class="nav-link text-dark"
+            [routerLink]="[{ outlets: { sub: ['news'] } }]"
+            >News</a
+          >
+        </li>
+        <li class="nav-item" [routerLinkActive]="['link-active']">
+          <a
+            class="nav-link text-dark"
+            [routerLink]="[{ outlets: { sub: ['text'] } }]"
+            >Text</a
+          >
+        </li>
+        <li class="nav-item" [routerLinkActive]="['link-active']">
+          <a
+            class="nav-link text-dark"
+            [routerLink]="[{ outlets: { sub: ['about'] } }]"
+            >About</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="column"><router-outlet name="sub"></router-outlet></div>
 </div>
-<router-outlet name="sub"></router-outlet>
