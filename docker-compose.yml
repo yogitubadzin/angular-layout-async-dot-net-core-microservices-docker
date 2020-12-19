@@ -1,0 +1,12 @@
+version: '3.4'
+
+services:
+  client:
+    build:
+      dockerfile: Dockerfile.dev      
+      context: ./LayoutAsyncLoading.Api.Events
+    ports:
+      - "54991:54991"
+      - "44441:44441"      
+    volumes:
+      - ./LayoutAsyncLoading.Api.Events:/app-docker
