@@ -4,12 +4,13 @@ import { CommonModule } from '@angular/common';
 import { ClientsPaymentsComponent } from './clients-payments/clients-payments.component';
 import { ClientsEventsComponent } from './clients-events/clients-events.component';
 import { ClientsVisitsComponent } from './clients-visits/clients-visits.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
   declarations: [ClientsPaymentsComponent, ClientsEventsComponent, ClientsVisitsComponent],
   imports: [
-    CommonModule
+    CommonModule, HttpClientModule
   ],
   exports: [ClientsPaymentsComponent, ClientsEventsComponent, ClientsVisitsComponent],
 })

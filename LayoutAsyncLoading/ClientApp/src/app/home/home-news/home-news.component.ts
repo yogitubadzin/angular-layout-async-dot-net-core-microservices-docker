@@ -1,3 +1,5 @@
+import { HomeNews } from './../../models/homeNews';
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeNewsComponent implements OnInit {
 
-  constructor() { }
+  title: string;
 
-  ngOnInit() {
-  }
+  constructor(http: HttpClient) {
+    http.get<HomeNews>('https://localhost:44442/news/title').subscribe(result => {
+      this.title = result.title;
+    }, error => console.error(error));
+   }
 
+   ngOnInit(){
+   }
 }

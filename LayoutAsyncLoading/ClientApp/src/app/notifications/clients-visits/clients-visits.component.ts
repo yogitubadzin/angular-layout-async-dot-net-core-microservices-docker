@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { VisitsNotification } from 'src/app/models/visitsNotification';
 
 @Component({
   selector: 'app-clients-visits',
@@ -9,8 +11,10 @@ export class ClientsVisitsComponent implements OnInit {
 
   number: number;
 
-  constructor() {
-    this.number = 33;
+  constructor(http: HttpClient) {
+    http.get<VisitsNotification>('https://localhost:44445/visits/count').subscribe(result => {
+      this.number = result.count;
+    }, error => console.error(error));
    }
 
   ngOnInit() {

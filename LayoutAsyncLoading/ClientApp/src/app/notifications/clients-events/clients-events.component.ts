@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { EventNotification } from 'src/app/models/eventNotification';
 
 @Component({
   selector: 'app-clients-events',
@@ -8,8 +10,10 @@ import { Component, OnInit } from '@angular/core';
 export class ClientsEventsComponent implements OnInit {
   number: number;
 
-  constructor() {
-    this.number = 5;
+  constructor(http: HttpClient) {
+    http.get<EventNotification>('https://localhost:44441/events/count').subscribe(result => {
+      this.number = result.count;
+    }, error => console.error(error));
    }
 
   ngOnInit() {
