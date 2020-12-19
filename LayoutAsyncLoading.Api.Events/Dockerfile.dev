@@ -1,20 +1,23 @@
 ﻿FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-buster-slim AS base
 WORKDIR /app
-EXPOSE 80
-EXPOSE 443
+EXPOSE 5004
+EXPOSE 5005
+ENV ASPNETCORE_URLS=https://+:5005;http://+:5004
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 WORKDIR /src
 COPY ["LayoutAsyncLoading.Api.Events.csproj", "LayoutAsyncLoading.Api.Events/"]
 RUN dotnet restore "LayoutAsyncLoading.Api.Events/LayoutAsyncLoading.Api.Events.csproj"
-COPY . .
+
 WORKDIR "/src/LayoutAsyncLoading.Api.Events"
-RUN dotnet build "LayoutAsyncLoading.Api.Events.csproj" -o /app
+COPY . .
+
+RUN dotnet build "LayoutAsyncLoading.Api.Events.csproj" -o /app/build
 
 FROM build AS publish       
-RUN dotnet publish "LayoutAsyncLoading.Api.Events.csproj" -o /app
+RUN dotnet publish "LayoutAsyncLoading.Api.Events.csproj" -o /app/publish
 
 FROM base AS final
 WORKDIR /app
-COPY --from=publish /app .
+COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "LayoutAsyncLoading.Api.Events.dll"]

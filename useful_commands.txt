@@ -1,0 +1,22 @@
+1.dotnet dev-certs https -ep certificate.pfx -p Password
+
+2.dotnet dev-certs https --trust
+
+3.check secrets.json
+%APPDATA%\Microsoft\UserSecrets\<user_secrets_id>\secrets.json
+
+add entry there:
+{
+    "Kestrel":{
+        "Certificates":{
+            "Default":{
+                "Path":     "/root/.aspnet/https/certificate.pfx",
+                "Password": "Password"
+            }
+        }
+    }
+}
+
+4.Check this thread to install certificate 
+https://github.com/dotnet/AspNetCore.Docs/issues/6199
+cp /d/TestApps/LayoutAsyncLoading/UserSecrets/certificate.pfx /c/Users/<user>/AppData/Roaming/ASP.NET/Https
