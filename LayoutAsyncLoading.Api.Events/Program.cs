@@ -1,4 +1,4 @@
-using System;
+using System.IO;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
@@ -8,28 +8,18 @@ namespace LayoutAsyncLoading.Api.Events
     {
         public static void Main(string[] args)
         {
-            try
-            {
-
-                CreateHostBuilder(args).Build().Run();
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-                Console.WriteLine(e.StackTrace);
-
-                if(e.InnerException !=null)
-                {
-                    Console.WriteLine(e.InnerException.Message);
-                }
-                throw;
-            }
+            CreateHostBuilder(args).Build().Run();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args)
         {
             return Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder => { webBuilder.UseStartup<Startup>(); });
+                .ConfigureWebHostDefaults(webBuilder =>
+                {
+                    webBuilder.UseContentRoot(Directory.GetCurrentDirectory())
+                        .UseUrls("https://0.0.0.0:443/")
+                        .UseStartup<Startup>();
+                });
         }
     }
 }

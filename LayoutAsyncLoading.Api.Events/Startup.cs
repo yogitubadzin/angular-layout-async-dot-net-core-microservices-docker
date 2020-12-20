@@ -40,7 +40,7 @@ namespace LayoutAsyncLoading.Api.Events
 
             app.UseCors("default");
 
-            //app.UseHttpsRedirection();
+            app.UseHttpsRedirection();
 
             app.UseRouting();
 

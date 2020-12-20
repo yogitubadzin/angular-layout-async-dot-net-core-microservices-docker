@@ -1,6 +1,5 @@
 ﻿FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-buster-slim AS base
 WORKDIR /app
-EXPOSE 80
 EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
@@ -19,4 +18,4 @@ RUN dotnet publish "LayoutAsyncLoading.Api.Events.csproj" -c Release -o /app/pub
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "LayoutAsyncLoading.Api.Events.dll"]
+ENTRYPOINT ["dotnet", "/app/LayoutAsyncLoading.Api.Events.dll", "--server.urls", "https://0.0.0.0:443"]
