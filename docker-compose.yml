@@ -7,11 +7,11 @@ services:
       context: ./LayoutAsyncLoading.Api.Events
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_URLS=https://localhost:5005;http://localhost:5004
+      - ASPNETCORE_URLS=https://localhost;http://localhost
       - ASPNETCORE_HTTPS_PORT=5005
     ports:
-      - "5004:5004"
-      - "5005:5005"      
+      - "5004:80"
+      - "5005:443"     
     volumes:
       - ./LayoutAsyncLoading.Api.Events:/app/publish
       - ${APPDATA}/Microsoft/UserSecrets/:/root/.microsoft/usersecrets
