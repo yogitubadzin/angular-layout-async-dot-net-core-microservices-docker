@@ -9,10 +9,12 @@ services:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=https://localhost;http://localhost
       - ASPNETCORE_HTTPS_PORT=5005
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=Password
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/certificate.pfx
     ports:
       - "5004:80"
       - "5005:443"     
     volumes:
       - ./LayoutAsyncLoading.Api.Events:/app/publish
       - ${APPDATA}/Microsoft/UserSecrets/:/root/.microsoft/usersecrets
-      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https/
+      - ${APPDATA}/ASP.NET/Https:/https:ro
