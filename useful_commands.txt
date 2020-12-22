@@ -1,11 +1,12 @@
-1.dotnet dev-certs https -ep certificate.pfx -p Password
+1.dotnet dev-certs https -ep certificate.pfx -p Password OR use existing certificate from UserSecrets folder
 
 2.dotnet dev-certs https --trust
 
 3.check secrets.json
 %APPDATA%\Microsoft\UserSecrets\<user_secrets_id>\secrets.json
+you can add empty secrets.json when right click on .net core projects and use "Manage User Secrets", we can override this file and and 
+following code:
 
-add entry there:
 {
     "Kestrel":{
         "Certificates":{
@@ -20,3 +21,6 @@ add entry there:
 4.Check this thread to install certificate 
 https://github.com/dotnet/AspNetCore.Docs/issues/6199
 cp /d/TestApps/LayoutAsyncLoading/UserSecrets/certificate.pfx /c/Users/<user>/AppData/Roaming/ASP.NET/Https
+
+5.Check example, go to following endpoint:
+https://localhost:5005/events/count
