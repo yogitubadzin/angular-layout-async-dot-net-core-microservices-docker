@@ -30,7 +30,7 @@ namespace LayoutAsyncLoading.Api.About
             {
                 options.AddPolicy("default", policy =>
                 {
-                    policy.WithOrigins("https://localhost:44318")
+                    policy.WithOrigins("https://localhost:5001")
                         .AllowAnyHeader()
                         .AllowAnyMethod();
                 });

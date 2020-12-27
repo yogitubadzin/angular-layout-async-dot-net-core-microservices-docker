@@ -63,8 +63,8 @@ services:
       - ASPNETCORE_Kestrel__Certificates__Default__Password=Password
       - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/certificate.pfx
     ports:
-      - "5009:80"
-      - "5008:443"     
+      - "5008:80"
+      - "5009:443"     
     volumes:
       - ./LayoutAsyncLoading.Api.Payments:/app/publish
       - ${APPDATA}/Microsoft/UserSecrets/:/root/.microsoft/usersecrets

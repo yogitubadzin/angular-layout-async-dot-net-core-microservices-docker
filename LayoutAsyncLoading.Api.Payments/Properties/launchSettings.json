@@ -30,8 +30,8 @@
       "commandName": "Docker",
       "launchBrowser": true,
       "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/",
-      "httpPort": 5009,
-      "sslPort": 5008,
+      "httpPort": 5008,
+      "sslPort": 5009,
       "useSSL": true
     }
   }
