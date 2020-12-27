@@ -12,7 +12,7 @@ export class ClientsVisitsComponent implements OnInit {
   number: number;
 
   constructor(http: HttpClient) {
-    http.get<VisitsNotification>('https://localhost:44445/visits/count').subscribe(result => {
+    http.get<VisitsNotification>('https://localhost:5013/visits/count').subscribe(result => {
       this.number = result.count;
     }, error => console.error(error));
    }

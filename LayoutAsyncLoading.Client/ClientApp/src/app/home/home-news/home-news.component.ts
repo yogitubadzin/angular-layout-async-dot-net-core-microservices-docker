@@ -12,7 +12,7 @@ export class HomeNewsComponent implements OnInit {
   title: string;
 
   constructor(http: HttpClient) {
-    http.get<HomeNews>('https://localhost:44442/news/title').subscribe(result => {
+    http.get<HomeNews>('https://localhost:5007/news/title').subscribe(result => {
       this.title = result.title;
     }, error => console.error(error));
    }

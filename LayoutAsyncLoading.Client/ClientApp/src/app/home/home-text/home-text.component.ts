@@ -12,7 +12,7 @@ export class HomeTextComponent implements OnInit {
   title: string;
 
   constructor(http: HttpClient) {
-    http.get<HomeText>('https://localhost:44444/text/title').subscribe(result => {
+    http.get<HomeText>('https://localhost:5011/text/title').subscribe(result => {
       this.title = result.title;
     }, error => console.error(error));
    }

@@ -11,7 +11,7 @@ export class HomeAboutComponent implements OnInit {
   title: string;
 
   constructor(http: HttpClient) {
-    http.get<HomeAbout>('https://localhost:44440/about/title').subscribe(result => {
+    http.get<HomeAbout>('https://localhost:5003/about/title').subscribe(result => {
       this.title = result.title;
     }, error => console.error(error));
    }

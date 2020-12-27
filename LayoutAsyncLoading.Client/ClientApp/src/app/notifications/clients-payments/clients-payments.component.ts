@@ -11,7 +11,7 @@ export class ClientsPaymentsComponent implements OnInit {
   number: number;
 
   constructor(http: HttpClient) {
-    http.get<PaymentsNotification>('https://localhost:44443/payments/count').subscribe(result => {
+    http.get<PaymentsNotification>('https://localhost:5009/payments/count').subscribe(result => {
       this.number = result.count;
     }, error => console.error(error));
    }

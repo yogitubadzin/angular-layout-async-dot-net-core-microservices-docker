@@ -11,7 +11,7 @@ export class ClientsEventsComponent implements OnInit {
   number: number;
 
   constructor(http: HttpClient) {
-    http.get<EventNotification>('https://localhost:44441/events/count').subscribe(result => {
+    http.get<EventNotification>('https://localhost:5005/events/count').subscribe(result => {
       this.number = result.count;
     }, error => console.error(error));
    }
