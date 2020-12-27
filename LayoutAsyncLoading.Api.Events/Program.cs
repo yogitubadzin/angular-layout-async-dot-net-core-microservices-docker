@@ -11,15 +11,13 @@ namespace LayoutAsyncLoading.Api.Events
             CreateHostBuilder(args).Build().Run();
         }
 
-        public static IHostBuilder CreateHostBuilder(string[] args)
-        {
-            return Host.CreateDefaultBuilder(args)
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
+            Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseContentRoot(Directory.GetCurrentDirectory())
                         .UseUrls("https://0.0.0.0:443/")
                         .UseStartup<Startup>();
                 });
-        }
     }
 }

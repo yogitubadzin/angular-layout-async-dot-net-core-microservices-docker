@@ -1,9 +1,26 @@
 version: '3.4'
 
 services:
+  api-about:
+    build:
+      dockerfile: Dockerfile      
+      context: ./LayoutAsyncLoading.Api.About
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=https://0.0.0.0:443
+      - ASPNETCORE_HTTPS_PORT=5003
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=Password
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/certificate.pfx
+    ports:
+      - "5002:80"
+      - "5003:443"     
+    volumes:
+      - ./LayoutAsyncLoading.Api.About:/app/publish
+      - ${APPDATA}/Microsoft/UserSecrets/:/root/.microsoft/usersecrets
+      - ${APPDATA}/ASP.NET/Https:/https:ro
   api-events:
     build:
-      dockerfile: Dockerfile.dev      
+      dockerfile: Dockerfile      
       context: ./LayoutAsyncLoading.Api.Events
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
@@ -16,5 +33,90 @@ services:
       - "5005:443"     
     volumes:
       - ./LayoutAsyncLoading.Api.Events:/app/publish
+      - ${APPDATA}/Microsoft/UserSecrets/:/root/.microsoft/usersecrets
+      - ${APPDATA}/ASP.NET/Https:/https:ro
+  api-news:
+    build:
+      dockerfile: Dockerfile      
+      context: ./LayoutAsyncLoading.Api.News
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=https://0.0.0.0:443
+      - ASPNETCORE_HTTPS_PORT=5007
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=Password
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/certificate.pfx
+    ports:
+      - "5006:80"
+      - "5007:443"     
+    volumes:
+      - ./LayoutAsyncLoading.Api.News:/app/publish
+      - ${APPDATA}/Microsoft/UserSecrets/:/root/.microsoft/usersecrets
+      - ${APPDATA}/ASP.NET/Https:/https:ro
+  api-payments:
+    build:
+      dockerfile: Dockerfile      
+      context: ./LayoutAsyncLoading.Api.Payments
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=https://0.0.0.0:443
+      - ASPNETCORE_HTTPS_PORT=5008
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=Password
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/certificate.pfx
+    ports:
+      - "5009:80"
+      - "5008:443"     
+    volumes:
+      - ./LayoutAsyncLoading.Api.Payments:/app/publish
+      - ${APPDATA}/Microsoft/UserSecrets/:/root/.microsoft/usersecrets
+      - ${APPDATA}/ASP.NET/Https:/https:ro
+  api-text:
+    build:
+      dockerfile: Dockerfile      
+      context: ./LayoutAsyncLoading.Api.Text
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=https://0.0.0.0:443
+      - ASPNETCORE_HTTPS_PORT=5011
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=Password
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/certificate.pfx
+    ports:
+      - "5010:80"
+      - "5011:443"     
+    volumes:
+      - ./LayoutAsyncLoading.Api.Text:/app/publish
+      - ${APPDATA}/Microsoft/UserSecrets/:/root/.microsoft/usersecrets
+      - ${APPDATA}/ASP.NET/Https:/https:ro
+  api-visits:
+    build:
+      dockerfile: Dockerfile      
+      context: ./LayoutAsyncLoading.Api.Visits
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=https://0.0.0.0:443
+      - ASPNETCORE_HTTPS_PORT=5013
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=Password
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/certificate.pfx
+    ports:
+      - "5012:80"
+      - "5013:443"     
+    volumes:
+      - ./LayoutAsyncLoading.Api.Visits:/app/publish
+      - ${APPDATA}/Microsoft/UserSecrets/:/root/.microsoft/usersecrets
+      - ${APPDATA}/ASP.NET/Https:/https:ro
+  client:
+    build:
+      dockerfile: Dockerfile      
+      context: ./LayoutAsyncLoading
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=https://0.0.0.0:443
+      - ASPNETCORE_HTTPS_PORT=5001
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=Password
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/certificate.pfx
+    ports:
+      - "5000:80"
+      - "5001:443"     
+    volumes:
+      - ./LayoutAsyncLoading:/app/publish
       - ${APPDATA}/Microsoft/UserSecrets/:/root/.microsoft/usersecrets
       - ${APPDATA}/ASP.NET/Https:/https:ro

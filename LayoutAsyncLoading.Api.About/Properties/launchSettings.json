@@ -12,7 +12,7 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "about",
+      "launchUrl": "about/count",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
@@ -20,11 +20,19 @@
     "LayoutAsyncLoading.Api.About": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "about",
+      "launchUrl": "about/count",
       "applicationUrl": "https://localhost:5003;http://localhost:5002",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
+    },
+    "Docker": {
+      "commandName": "Docker",
+      "launchBrowser": true,
+      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/",
+      "httpPort": 5002,
+      "sslPort": 5003,
+      "useSSL": true
     }
   }
 }
