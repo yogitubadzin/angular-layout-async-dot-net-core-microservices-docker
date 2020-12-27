@@ -21,7 +21,12 @@ WORKDIR /src
 COPY ["ClientApp/package.json", "LayoutAsyncLoading.Client/ClientApp/"]
 
 WORKDIR "/src/LayoutAsyncLoading.Client/ClientApp/"
-RUN npm install
+RUN npm install --save-dev @angular/cli@latest
+RUN npm install --save-dev @angular/compiler@8.2.14
+CMD ng update --all --force
+CMD apt-get install -y build-essential
+RUN npm install -g typescript@3.5.3
+RUN npm install --unsafe-perm
 RUN npm build --prod
 
 WORKDIR "/src/LayoutAsyncLoading.Client"

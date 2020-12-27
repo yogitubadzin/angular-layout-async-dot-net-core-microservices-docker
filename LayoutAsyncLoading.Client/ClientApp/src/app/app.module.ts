@@ -4,7 +4,6 @@ import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import { CounterModule } from './counter/counter.module';
 
 @NgModule({
   declarations: [
@@ -14,8 +13,7 @@ import { CounterModule } from './counter/counter.module';
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     RouterModule,
     SharedModule,
-    AppRoutingModule,
-    CounterModule
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
