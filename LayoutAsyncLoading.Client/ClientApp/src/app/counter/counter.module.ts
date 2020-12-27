@@ -8,6 +8,7 @@ import { CounterNumbersComponent } from './counter-numbers/counter-numbers.compo
   imports: [
     CommonModule,
     CounterRoutingModule
-  ]
+  ],
+  exports: [CounterNumbersComponent]
 })
 export class CounterModule { }

@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using LayoutAsyncLoading.Models;
+using LayoutAsyncLoading.Client.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace LayoutAsyncLoading.Controllers
+namespace LayoutAsyncLoading.Client.Controllers
 {
     [ApiController]
     [Route("[controller]")]

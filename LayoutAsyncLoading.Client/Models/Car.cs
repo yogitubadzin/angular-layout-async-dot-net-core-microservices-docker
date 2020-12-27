@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace LayoutAsyncLoading.Models
+namespace LayoutAsyncLoading.Client.Models
 {
     public class Car
     {

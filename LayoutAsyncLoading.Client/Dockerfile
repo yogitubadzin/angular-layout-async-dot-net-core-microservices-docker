@@ -18,9 +18,10 @@ COPY ["LayoutAsyncLoading.Client.csproj", "LayoutAsyncLoading.Client/"]
 RUN dotnet restore "LayoutAsyncLoading.Client/LayoutAsyncLoading.Client.csproj"
 
 WORKDIR /src
-COPY ["/ClientApp/package.json", "LayoutAsyncLoading.Client/ClientApp/"]
+COPY ["ClientApp/package.json", "LayoutAsyncLoading.Client/ClientApp/"]
 
 WORKDIR /src/LayoutAsyncLoading.Client/ClientApp/
+RUN ls -al
 RUN npm install
 
 WORKDIR "/src/LayoutAsyncLoading.Client"
