@@ -3,10 +3,10 @@ version: '3.4'
 services:
   client-test:
     build:
-      dockerfile: Dockerfile-client      
+      dockerfile: Dockerfile      
       context: ./LayoutAsyncLoading.Client
     environment:
-      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_ENVIRONMENT=Production
       - ASPNETCORE_URLS=https://0.0.0.0:443
       - ASPNETCORE_HTTPS_PORT=5001
       - ASPNETCORE_Kestrel__Certificates__Default__Password=Password
@@ -18,3 +18,4 @@ services:
       - ./LayoutAsyncLoading.Client:/app/publish
       - ${APPDATA}/Microsoft/UserSecrets/:/root/.microsoft/usersecrets
       - ${APPDATA}/ASP.NET/Https:/https:ro
+      - /app/AppClient/node_modules

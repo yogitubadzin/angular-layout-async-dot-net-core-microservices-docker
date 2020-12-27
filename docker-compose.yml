@@ -6,7 +6,7 @@ services:
       dockerfile: Dockerfile      
       context: ./LayoutAsyncLoading.Api.About
     environment:
-      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_ENVIRONMENT=Production
       - ASPNETCORE_URLS=https://0.0.0.0:443
       - ASPNETCORE_HTTPS_PORT=5003
       - ASPNETCORE_Kestrel__Certificates__Default__Password=Password
@@ -23,7 +23,7 @@ services:
       dockerfile: Dockerfile      
       context: ./LayoutAsyncLoading.Api.Events
     environment:
-      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_ENVIRONMENT=Production
       - ASPNETCORE_URLS=https://0.0.0.0:443
       - ASPNETCORE_HTTPS_PORT=5005
       - ASPNETCORE_Kestrel__Certificates__Default__Password=Password
@@ -40,7 +40,7 @@ services:
       dockerfile: Dockerfile      
       context: ./LayoutAsyncLoading.Api.News
     environment:
-      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_ENVIRONMENT=Production
       - ASPNETCORE_URLS=https://0.0.0.0:443
       - ASPNETCORE_HTTPS_PORT=5007
       - ASPNETCORE_Kestrel__Certificates__Default__Password=Password
@@ -57,7 +57,7 @@ services:
       dockerfile: Dockerfile      
       context: ./LayoutAsyncLoading.Api.Payments
     environment:
-      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_ENVIRONMENT=Production
       - ASPNETCORE_URLS=https://0.0.0.0:443
       - ASPNETCORE_HTTPS_PORT=5008
       - ASPNETCORE_Kestrel__Certificates__Default__Password=Password
@@ -74,7 +74,7 @@ services:
       dockerfile: Dockerfile      
       context: ./LayoutAsyncLoading.Api.Text
     environment:
-      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_ENVIRONMENT=Production
       - ASPNETCORE_URLS=https://0.0.0.0:443
       - ASPNETCORE_HTTPS_PORT=5011
       - ASPNETCORE_Kestrel__Certificates__Default__Password=Password
@@ -91,7 +91,7 @@ services:
       dockerfile: Dockerfile      
       context: ./LayoutAsyncLoading.Api.Visits
     environment:
-      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_ENVIRONMENT=Production
       - ASPNETCORE_URLS=https://0.0.0.0:443
       - ASPNETCORE_HTTPS_PORT=5013
       - ASPNETCORE_Kestrel__Certificates__Default__Password=Password
@@ -108,7 +108,7 @@ services:
       dockerfile: Dockerfile      
       context: ./LayoutAsyncLoading.Client
     environment:
-      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_ENVIRONMENT=Production
       - ASPNETCORE_URLS=https://0.0.0.0:443
       - ASPNETCORE_HTTPS_PORT=5001
       - ASPNETCORE_Kestrel__Certificates__Default__Password=Password
@@ -119,4 +119,5 @@ services:
     volumes:
       - ./LayoutAsyncLoading.Client:/app/publish
       - ${APPDATA}/Microsoft/UserSecrets/:/root/.microsoft/usersecrets
-      - ${APPDATA}/ASP.NET/Https:/https:ro
+      - ${APPDATA}/ASP.NET/Https:/https:ro      
+      - /app/AppClient/node_modules
